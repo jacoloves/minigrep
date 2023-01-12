@@ -29,3 +29,19 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 
     Ok(())
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn one_result() {
+        let query = "duct";
+        let cotents = "\
+        Rust:
+        sage, fase, productive.
+        Pick three.";
+
+        assert_eq!(vec!["safe, fast, production."], search(query, contents));
+    }
+}
